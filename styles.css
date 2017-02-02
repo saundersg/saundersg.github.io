@@ -1,0 +1,94 @@
+.introduction {
+    border-radius: 25px;
+    border: 2px solid 	#2173AD;
+    padding: 20px; 
+    padding-left: 15px;
+    margin-bottom:30px;
+}
+
+.outcomes {
+    border-radius: 25px;
+    border: 2px solid 	#2173AD;
+    padding: 20px; 
+    padding-left: 15px;
+    margin-bottom:30px;
+}
+
+.casestudy {
+    border-radius: 25px;
+    border: 2px solid 	#2173AD;
+    padding: 20px; 
+    padding-left: 15px;
+    margin-bottom:30px;
+}
+
+.casestudystep {
+  padding-left:20px;
+}
+
+.casestudyimage {
+  float:right;
+  padding-left:15px;
+  width:50%;
+  border:1;
+}
+
+.concepts {
+    border-radius: 25px;
+    border: 2px solid 	#2173AD;
+    padding: 20px; 
+    padding-left: 15px;
+    margin-bottom:30px;
+}
+
+
+
+.conceptparagraph{
+  padding-left:20px;
+}
+
+
+hr.conceptsplit {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75));
+}
+
+div.hidden {
+  visibility: none;
+}
+
+
+.workedexample {
+    border-radius: 25px;
+    border: 2px solid 	#2173AD;
+    padding: 20px; 
+    padding-left: 15px;
+    margin-bottom:30px;
+}
+
+
+.plainlinks a {
+	background: none !important;
+	padding: 0 !important;
+	color: #002bb8 !important;
+}
+
+.nextpage{
+  float:right;
+  padding-right:15px;
+  padding-left:15px;
+  background:#3f3f3f;
+  border-radius:25px;
+  cell-padding:2px;
+}
+
+.nextpage a:link, .nextpage a:visited{
+  color:#ffffff; 
+  font-weight:bold;
+}
+
+.blockquote {
+  padding-left:15px;
+  padding-right:15px;
+}

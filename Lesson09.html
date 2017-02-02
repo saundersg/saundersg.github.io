@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Lesson 9: Hypothesis Test for One Mean (Sigma Known)</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Math 221B</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Unit 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Lesson01.html">Lesson 1: Course Introduction</a>
+    </li>
+    <li>
+      <a href="Lesson02.html">Lesson 2: The Statistical Process</a>
+    </li>
+    <li>
+      <a href="Lesson03.html">Lesson 3: Describing Quantitative Data</a>
+    </li>
+    <li>
+      <a href="Lesson03.html">Lesson 4: Rules of Probability</a>
+    </li>
+    <li>
+      <a href="Lesson03.html">Lesson 5: Normal Distributions</a>
+    </li>
+    <li>
+      <a href="Lesson03.html">Lesson 6: The Central Limit Theorem</a>
+    </li>
+    <li>
+      <a href="Lesson03.html">Lesson 7: Probability Calculations for a Sample Mean</a>
+    </li>
+    <li class="dropdown-header">Lesson 8: Unit 1 Review</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Unit 2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Lesson09.html">Lesson 9: Hypothesis Test for One Mean (Sigma Known)</a>
+    </li>
+    <li>
+      <a href="Lesson10.html">Lesson 10: Confidence Interval for One Mean (Sigma Known)</a>
+    </li>
+    <li>
+      <a href="Lesson11.html">Lesson 11: Inference for One Mean (Sigma Unknown)</a>
+    </li>
+    <li>
+      <a href="Lesson12.html">Lesson 12: Inference for Match Pairs</a>
+    </li>
+    <li>
+      <a href="Lesson13.html">Lesson 13: Inference for Two Independent Samples</a>
+    </li>
+    <li>
+      <a href="Lesson14.html">Lesson 14: Inference for Several Independent Samples</a>
+    </li>
+    <li class="dropdown-header">Lesson 15: Unit 2 Review</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Unit 3
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Lesson16.htlm">Lesson 16: Describing Categorical Data</a>
+    </li>
+    <li>
+      <a href="Lesson17.html">Lesson 17: Inference for One Proportion</a>
+    </li>
+    <li>
+      <a href="Lesson18.html">Lesson 18: Inference for Two Proportions</a>
+    </li>
+    <li>
+      <a href="Lesson19.html">Lesson 19: Inference for Independence of Categorical Data</a>
+    </li>
+    <li class="dropdown-header">Lesson 20: Unit 3 Review</li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Unit 4
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Lesson21.html">Lesson 21: Describing Bivariate Data</a>
+    </li>
+    <li>
+      <a href="Lesson22.html">Lesson 22: Simple Linear Regression</a>
+    </li>
+    <li>
+      <a href="Lesson23.html">Lesson 23: Inference for Bivariate Data</a>
+    </li>
+    <li class="dropdown-header">Lesson 24: Unit 4 Review</li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="Data.html">Data</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Lesson 9: Hypothesis Test for One Mean (Sigma Known)</h1>
+
+</div>
+
+
+<!-- Lesson Introduction Section Begin ---------------------------------->
+<div id="lesson-introduction" class="section level2">
+<h2>Lesson Introduction</h2>
+<div class="introduction">
+
+</div>
+<!-- Lesson Outcomes Section Begin ------------------------------------->
+</div>
+<div id="lesson-outcomes" class="section level2">
+<h2>Lesson Outcomes</h2>
+<div class="outcomes">
+<p>Conduct a Hypothesis Test for a single mean <span class="math inline">\(\mu\)</span> with <span class="math inline">\(\sigma\)</span> known:</p>
+<ul>
+<li>State the null and alternative hypothesis.</li>
+<li>Show the appropriate numerical and graphical summaries that support the hypothesis test.</li>
+<li>Check the requirements for the hypothesis test.</li>
+<li>Calculate the test-statistic and <span class="math inline">\(p\)</span>-value of the hypothesis test.</li>
+<li>Assess the statistical significance by comparing the <span class="math inline">\(p\)</span>-value to the significance level, <span class="math inline">\(\alpha\)</span>.</li>
+<li>Draw a correct conclusion for the hypothesis test.</li>
+<li>Interpret a Type I and II error.</li>
+</ul>
+</div>
+<!-- Case Study Section Begin ------------------------------------------->
+</div>
+<div id="case-study-ethan-allen" class="section level2">
+<h2>Case Study: Ethan Allen</h2>
+<div class=casestudy>
+
+<p><strong>Case Study Objective:</strong> Demonstrate how to Conduct a Hypothesis Test for a single mean with <span class="math inline">\(\sigma\)</span> known.</p>
+<hr />
+<p><img id=casestudy alt="The Judge Ben Wiles (TJG)" src="EthanAllen.jpg" /></p>
+<p>A tragic accident on Lake George in New York, USA, called into question the safety regulations for commercial tour boats. On October 5, 2005, a full boat of 47 passengers and 1 crew member began a routine one-hour tour of Lake George. As the operator initiated a turn, the tour boat “Ethan Allen” listed (tipped) enough to take water aboard. The force caused by dipping beneath the surface caused the vessel to list, shifting the passengers to one side of the boat. After this shift in the weight distribution, the boat capsized killing 20 passengers and injuring 9 others.</p>
+<div id="design" class="section level3">
+<h3>Design</h3>
+<p>We assume that at the time of the accident, the stability requirements were based on the Coast Guard criteria of a mean of 140 pounds per person. So, the Ethan Allen was supposed to be able to safely transport passengers and crew with a mean weight of 140 pounds. We want to investigate if 140 pounds is a reasonable value for the mean weight of tour boat passengers. This leads to the research question: “Is the mean weight of tour boat passengers greater than 140 pounds?”</p>
+<p>We can rewrite the research question in a declarative sentence to obtain a hypothesis, or a testable statement about a population.</p>
+<p>The first hypothesis we will write is that the Coast Guard criteria is appropriate: “The true mean weight of tour boat passengers is 140 pounds.” We call this the null hypothesis and label it as <span class="math inline">\(H_0\)</span>. The ‘’’null hypothesis’’’ is a statement of the “status quo”, or the value typically considered to be appropriate. The null hypothesis is expressed with a statement involving equality (<span class="math inline">\(=\)</span>).</p>
+<p><span class="math inline">\(H_0:~~\mu = 140\)</span> pounds</p>
+<p>In contrast to the null hypothesis, we write the alternative hypothesis, denoted by <span class="math inline">\(H_a\)</span>. This is typically the statement that a researcher suspects is the actual truth and is often called the research hypothesis. In our case, we suspect that “The mean weight of tour boat passengers is greater than 140 pounds.”</p>
+<p><span class="math inline">\(H_a:~~\mu &gt; 140\)</span> pounds</p>
+<p>In every hypothesis test we will perform this semester, the null hypothesis will be a statement involving equality. The alternative hypothesis can include greater than (<span class="math inline">\(&gt;\)</span>), less than (<span class="math inline">\(&lt;\)</span>), or not equal (<span class="math inline">\(\ne\)</span>).</p>
+<p>When we test hypotheses, we assume the null hypothesis is true. Because of this requirement, whenever we need to use <span class="math inline">\(\mu\)</span> in a calculation, we can use the value specified in the null hypothesis. When we conduct a hypothesis test, we gather evidence against the null hypothesis, which we have assumed to be true. If we get enough evidence against the null hypothesis, we reject it and conclude it was false. If we do not have sufficient evidence against the null hypothesis, we do not reject it, i.e., we “fail to reject it.”</p>
+<p>In summary, we {{Objective|state the null and alternative hypotheses|hyptwofirst|#Lesson_Outcomes}} for the true mean weight <span class="math inline">\(\mu\)</span> of tour boat passengers to be</p>
+<p><span class="math inline">\(H_0:~~\mu = 140\)</span> pounds</p>
+<p><span class="math inline">\(H_a:~~\mu &gt; 140\)</span> pounds</p>
+<p>We also establish the [[Significance_Level|significance level]], <span class="math inline">\(\alpha\)</span>, to be <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+</div>
+<div id="collect" class="section level3">
+<h3>Collect</h3>
+<p>How do we gather evidence against a null hypothesis? We collect data.</p>
+<p>The marine accident report gives the weight (in pounds) of each of the passengers and the crew member. These values are reproduced below. <!-- [Cite: "Capsizing of New York State-Certificated Vessel Ethan Allen, Lake George, New York October 2, 2005"] --></p>
+<center>
+<table>
+<tbody>
+<tr class="odd">
+<td align="right">189</td>
+<td align="right">128</td>
+<td align="right">194</td>
+<td align="right">170</td>
+<td align="right">142</td>
+<td align="right">173</td>
+</tr>
+<tr class="even">
+<td align="right">110</td>
+<td align="right">135</td>
+<td align="right">260</td>
+<td align="right">190</td>
+<td align="right">210</td>
+<td align="right">155</td>
+</tr>
+<tr class="odd">
+<td align="right">144</td>
+<td align="right">141</td>
+<td align="right">165</td>
+<td align="right">129</td>
+<td align="right">180</td>
+<td align="right">165</td>
+</tr>
+<tr class="even">
+<td align="right">141</td>
+<td align="right">205</td>
+<td align="right">137</td>
+<td align="right">146</td>
+<td align="right">155</td>
+<td align="right">175</td>
+</tr>
+<tr class="odd">
+<td align="right">185</td>
+<td align="right">200</td>
+<td align="right">198</td>
+<td align="right">135</td>
+<td align="right">217</td>
+<td align="right">235</td>
+</tr>
+<tr class="even">
+<td align="right">194</td>
+<td align="right">164</td>
+<td align="right">195</td>
+<td align="right">176</td>
+<td align="right">198</td>
+<td align="right">230</td>
+</tr>
+<tr class="odd">
+<td align="right">180</td>
+<td align="right">150</td>
+<td align="right">158</td>
+<td align="right">204</td>
+<td align="right">126</td>
+<td align="right">268</td>
+</tr>
+<tr class="even">
+<td align="right">211</td>
+<td align="right">170</td>
+<td align="right">204</td>
+<td align="right">170</td>
+<td align="right">247</td>
+<td align="right">170</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Ideally, we would have hoped for a simple random sample of all tour boat passengers. However, we will assume that this convenience sample is representative of the population of all tour boat passengers.</p>
+</div>
+<div id="describe" class="section level3">
+<h3>Describe</h3>
+<p>To help us understand the the data, we first summarize the data by {{Objective|creating an appropriate graphical summary which will support the hypothesis test|hypthreefirst|#Lesson_Outcomes}} that we will use to Make Inference in Step 4 of the Statistical Process.</p>
+<center>
+<p><a href="http://byuimath.com/saunderspractice/images/Lesson09/EthanAllenWeightHistogram.png" class="uri">http://byuimath.com/saunderspractice/images/Lesson09/EthanAllenWeightHistogram.png</a></p>
+<!-- R Code to produce image of histogram:
+
+weight <-  c(189, 110, 144, 141, 185, 194, 180, 211,
+             128, 135, 141, 205, 200, 164, 150, 170,
+             194, 260, 165, 137, 198, 195, 158, 204,
+             170, 190, 129, 146, 135, 176, 204, 170,
+             142, 210, 180, 155, 217, 198, 126, 247,
+             173, 155, 165, 175, 235, 230, 268, 170)
+png(filename="EthanAllenWeightHistogram.png",
+    width = 420, height = 320)
+hist(weight, xlab="Weight", main="Weights of Ethan Allen Passengers",
+     col="wheat2", xlim=c(100,300))
+dev.off()
+
+-->
+</center>
+<p>Next, we {{Objective|compute appropriate numerical summaries that support the hypothesis test|hypthreesecond|#Lesson_Outcomes}} that we will use to Make Inference in the next step. The sample size is <span class="math inline">\(n=48\)</span>, and the sample mean is <span class="math inline">\(\bar x=177.6\)</span> pounds. According to the CDC, the standard deviation of the weights of individuals in the United States is $ =26.7$ pounds. <!-- CITE: http://www.cdc.gov/growthcharts/2000growthchart-us.pdf, page 154-155.--></p>
+<p>Considering the data as a random sample of all possible tour boat passengers, it appears that the true mean weight of tour boat passengers might be greater than 140 pounds. However, we need to check this with a formal test of our hypotheses.</p>
+</div>
+<div id="make-inference" class="section level3">
+<h3>Make Inference</h3>
+<p>It is not sufficient to gain an intuitive sense for the data. We will use a statistical test to see if there is sufficient evidence to reject the null hypothesis that the true mean weight of tour boat passengers is 140 pounds.</p>
+<p>An appropriate hypothesis test for these data is the one sample <span class="math inline">\(\sigma\)</span> known hypothesis test. This is because the three {{Objective|requirements for the one mean <span class="math inline">\(\sigma\)</span> known hypothesis test|hypfourfirst|#Lesson_Outcomes}} can be assumed to be met as (1) the data can be assumed to be a representative sample from the population of interest, (2) the sample size <span class="math inline">\(n=48\)</span> is larger than 30 so the sampling distribution of <span class="math inline">\(\bar{x}\)</span> can be assumed to be normal, and (3) <span class="math inline">\(\sigma=26.7\)</span> pounds is known.</p>
+<p>Assuming the null hypothesis is true (<span class="math inline">\(\mu=140\)</span>), what is the probability that we would observe a sample mean (<span class="math inline">\(\bar{x}\)</span>) as extreme or more extreme than the value of <span class="math inline">\(177.6\)</span> we observed? This probability is called the <span class="math inline">\(P\)</span>-value.</p>
+<p>To find the <span class="math inline">\(P\)</span>-value for the one sample <span class="math inline">\(\sigma\)</span> known hypothesis test, we first calculate the number of standard deviations that the sample mean (<span class="math inline">\(\bar x = 177.6\)</span>) is away from the assumed value of true mean (<span class="math inline">\(\mu=140\)</span> pounds). This is our <span class="math inline">\(z\)</span>-score. Then we use the applet to determine the probability of observing a value of <span class="math inline">\(z\)</span> that is as large or larger than the value we observed. (This is the same as the probability of observing a value of $ x =177.6$ or more pounds, given that the true mean really is $ = 140$ pounds.)</p>
+<p>We {{Objective|calculate the test-statistic (<span class="math inline">\(z\)</span>) of the hypothesis test|hypfivefirst|#Lesson_Outcomes}} by computing</p>
+<p><span class="math display">\[ \displaystyle{ z= \frac{ \bar x − \mu}{\sigma/\sqrt{n}} = \frac{177.6−140}{26.7/\sqrt{48}}=9.757 } \]</span></p>
+<p>We {{Objective|calculate the p-value of the hypothesis test|hypfivesecond|#Lesson_Outcomes}} using the [<a href="http://byuimath.com/apps/normprob.html" class="uri">http://byuimath.com/apps/normprob.html</a> Normal Probability Applet] to determine the probability of observing a value of <span class="math inline">\(z\)</span> that is as large or larger than <span class="math inline">\(z = 9.757\)</span>. Note that the alternative hypothesis (<span class="math inline">\(H_a: \mu &gt; 140\)</span>) specifies that we shade to the right of <span class="math inline">\(z\)</span>. While the following plot does this, we cannot actually see the shaded area on the right because the area is so small it is essentially zero!</p>
+<p>{{NormalProbabilityApp|z=9.757|left=0|mid=0|right=1|width=500|height=325|fheight=350|static=1}}</p>
+<p>The normal probability applet gives the area as “8.6086e-23.” Remember, this is scientific notation for the number 0.000000000000000000000086086! It is very unlikely that the mean of $ x =177.6$ pounds was observed just by chance.</p>
+<p>We {{Objective|assess the statistical significance by comparing the p-value to the <span class="math inline">\(\alpha\)</span>-level|hypsixfirst|#Lesson_Outcomes}}. Since the p-value (8.6086e-23) is certainly less than <span class="math inline">\(\alpha=0.05\)</span>, the evidence against <span class="math inline">\(H_0\)</span> is strong enough to reject <span class="math inline">\(H_0\)</span> and conclude <span class="math inline">\(H_a\)</span>. In other words, we {{Objective | draw the conclusion from this hypothesis test|hypsevenfirst|#Lesson_Outcomes}} that if every seat on the Ethan Allen was occupied, the boat would be carrying a greater load than it was certified to handle.</p>
+</div>
+<div id="take-action" class="section level3">
+<h3>Take Action</h3>
+<p>As a result of this accident, the United States government took several actions. The Coast Guard stability regulations were changed, and the assumed average weight per person was increased to 185 pounds. <!-- [[CITE: http://www.uscg.mil/hq/cg5/cg5212/docs/secg12142010.pdf]]--> As a result, the safety of public vessels has been improved.</p>
+<hr />
+</div>
+<div id="note" class="section level3">
+<h3>Note</h3>
+<p>While this change in regulation was most likely the correct decision, it is important to keep in mind that whenever the null hypothesis is rejected there is always a small possibility that a Type I Error has been committed. A Type I Error is defined as rejecting the null hypothesis (<span class="math inline">\(H_0: \mu = 140\)</span> in this case) when it was actually true. The {{Objective|interpretation of a Type I Error|eightfirst|#Lesson_Outcomes}} for this study would be that the assumed weight per person was incorrectly increased to 185 pounds and that in truth it should have been kept at 140 pounds (the null hypothesis). However, since we controlled the probability of a Type I Error at <span class="math inline">\(\alpha=0.05\)</span>, we are very confident that we have made a correct decision and not a Type I Error.</p>
+</div>
+<!-- Concepts and Definitions Section Begin ----------------------------->
+</div>
+</div>
+<div id="concepts-and-definitions" class="section level2">
+<h2>Concepts and Definitions</h2>
+<div class="concepts">
+
+</div>
+<!-- Worked Example Section Begin --------------------------------------->
+</div>
+<div id="worked-example" class="section level2">
+<h2>Worked Example</h2>
+<div class="workedexample">
+
+</div>
+<!-- Preparation Assignment Begin --------------------------------------->
+</div>
+<div id="preparation-assignment" class="section level2">
+<h2>Preparation Assignment</h2>
+<div class="preparation">
+
+</div>
+<!-- Homework Assignment Begin ------------------------------------------>
+</div>
+<div id="homework-assignment" class="section level2">
+<h2>Homework Assignment</h2>
+<div class="homework">
+
+</div>
+<!-- End of Document --------------------------------------------------->
+<footer>
+</footer>
+</div>
+
+<br />
+<hr />
+<p>Copyright &copy; 2017 Brigham Young University-Idaho. All rights reserved.</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
