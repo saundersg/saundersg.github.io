@@ -397,64 +397,639 @@ div.tocify {
 
 
 <!-- Lesson Introduction Section Begin ---------------------------------->
-<div id="lesson-introduction" class="section level2">
+<div id="LessonIntroduction" class="section level2">
 <h2>Lesson Introduction</h2>
 <div class="introduction">
-
+<!-- begin writing below here for the Introduction. -->
+<p>Recall from Lesson 2 the five steps of the Statistical Process:</p>
+<div style="padding-left:20px;">
+<table>
+<thead>
+<tr class="header">
+<th align="left">The Statistical Process</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><img src="Images/Step1.png" width="100"></td>
+<td align="left"><strong>D</strong>esign the Study</td>
+</tr>
+<tr class="even">
+<td align="left"><img src="Images/Step2.png" width="100"></td>
+<td align="left"><strong>C</strong>ollect the Data</td>
+</tr>
+<tr class="odd">
+<td align="left"><img src="Images/Step3.png" width="130"></td>
+<td align="left"><span style="font-size:1.3em;line-height:2em;vertical-align:middle;"><strong>Describe the Data</strong></span></td>
+</tr>
+<tr class="even">
+<td align="left"><img src="Images/Step4.png" width="100"></td>
+<td align="left"><strong>M</strong>ake Inference</td>
+</tr>
+<tr class="odd">
+<td align="left"><img src="Images/Step5.png" width="100"></td>
+<td align="left"><strong>T</strong>ake Action</td>
+</tr>
+</tbody>
+</table>
 </div>
-<!-- Lesson Outcomes Section Begin ------------------------------------->
-</div>
-<div id="lesson-outcomes" class="section level2">
-<h2>Lesson Outcomes</h2>
-<div class="outcomes">
-<ul>
-<li>Determine the shape, center, and spread of a distribution from a histogram.</li>
-<li>Determine the shape, center, and spread of a distribution from a boxplot.</li>
-<li>Identify the mean and median in skewed or bell-shaped distributions.</li>
-<li>Calculate the mean, median, and standard deviation from quantitative data both by hand and with software.</li>
-<li>Calculate a percentile and the five-number summary from a quantitative data set with software.</li>
-<li>Create a histogram and a box-plot from quantitative data both by hand and with software.</li>
-</ul>
+<p>This lesson focuses on <strong>Describing Data</strong>, <strong>Step 3</strong> of the Statistical Process. It will demonstrate how to describe quantitative data both with numerical summaries like the mean, median, mode, five-numer summary, and standard deviation as well as with graphical summaries, like histograms and boxplots.</p>
+<!-- Stop writing Introduction here. -->
 </div>
 <!-- Case Study Section Begin ------------------------------------------->
 </div>
-<div id="case-study" class="section level2">
-<h2>Case Study:</h2>
+<div id="case-study-tuberculosis-costs" class="section level2">
+<h2>Case Study: Tuberculosis Costs</h2>
 <div class=casestudy>
-
-<p><strong>Case Study Objective:</strong></p>
+<!-- Begin writing Case Study below here. -->
+<p><strong>Case Study Objective:</strong> Demonstrate how to describe quantitative data.</p>
 <hr />
-<!-- Uncomment image to use -->
-<!-- <img id=casestudy alt="The Judge Ben Wiles (TJG)" src="" /> -->
+<!-- Uncomment image to use it: -->
+<p><img class=casestudyimage alt="Market in India" src="./Images/320px-Market_rural-India_-Tamilword22.jpg" /></p>
 <!-- Case Study Overview goes here -->
-<div id="design" class="section level3">
-<h3>Design</h3>
+<p>Tuberculosis (TB) is the most deadly bacterial disease in the world. In 2009, there were almost 2 million deaths worldwide due to the disease.</p>
+<p>Currently, the principal vaccine used to prevent tuberculosis is Bacille Calmette Guerin (BCG), which is expensive to administer and only moderately effective at preventing tuberculosis. This is especially dramatic in India where the number of tuberculosis cases has been particularly high. The total average (mean) cost to society to treat a case of tuberculosis in India has historically been $13,800.</p>
+<div id="design-the-study" class="section level3">
+<h3><img src="Images/Step1.png" /> Design the Study</h3>
+<div class="casestudystep">
+<!-- Begin "Design the Study" -->
+<p>Suppose the Indian Government wants to determine if the average (mean) cost of treating tuberculosis has increased in recent years over the historical number of $13,000. In other words, is there any evidence of inflation in the cost of treating tuberculosis in India?</p>
+<p>To effectively make a decision about the true current average cost of treating tuberculosis, the estimated average cost in India will be compared to the historical average cost of treating a case of tuberculosis.</p>
+<!-- END: "Design the Study" -->
 </div>
-<div id="collect" class="section level3">
-<h3>Collect</h3>
 </div>
-<div id="describe" class="section level3">
-<h3>Describe</h3>
+<div id="collect-the-data" class="section level3">
+<h3><img src="Images/Step2.png" /> Collect the Data</h3>
+<div class="casestudystep">
+<!-- Begin "Collect the Data" -->
+<p>Health Care records of tuberculosis patients in India were surveyed to estimate the true cost in India to treat patients with tuberculosis. The following data are representative of the total costs (in US dollars) incurred by society in the treatment of 10 randomly selected tuberculosis patients in India.</p>
+<p><em>15100</em>, <em>19000</em>, <em>4800</em>, <em>6500</em>, <em>14900</em>, <em>600</em>, <em>23500</em>, <em>11500</em>, <em>12900</em> and <em>32200</em></p>
+<p>These costs include health care treatment, time missed from work, and in some cases utility lost due to death.</p>
+<!-- END: "Collect the Data" -->
+</div>
+</div>
+<div id="describe-the-data" class="section level3">
+<h3><img src="Images/Step3.png" /> Describe the Data</h3>
+<div class="casestudystep">
+<!-- Begin "Describe the Data" -->
+<p>When describing quantitative data, the goal is to show how the data is spread out. Statisticians refer to this as summarizing the <em>distribution of the data</em>. Of greatest interest are the <strong>shape</strong>, <strong>center</strong>, and <strong>spread</strong> of the distribution. Two very commonly used approaches to describing the distribution of data are demonstrated below as <strong>Option 1</strong> and <strong>Option 2</strong>.</p>
+<div class="note">
+<p>Note that a statistical analysis would only <em>use one of these approaches, not both</em>, to describe the distribution of the data. Both options are demonstrated here for educational purposes only.</p>
+</div>
+<!-- Option 1 for Describing Data -->
+<span style="font-size:1.1em;&gt;**Option 1**: Using a histogram, the mean, and the standard deviation.&lt;/span&gt;
+&lt;div style=" padding-left:15px;"=""><strong>Option 1</strong>: Using a histogram, the mean, and the standard deviation.</span>
+<div style="padding-left:15px;">
+<p>One way to summarize the distribution of the data that was collected in <strong>Step 2: Collecting Data</strong> is by creating a graph called a <a href="#histogram">histogram</a>, which is shown in the plot below. Notice that each “bin” in the plot (the vertical boxes) has a height equal to the number of data points that occurred within that bin. From the histogram we can <a href="#LessonOutcomes">determine the shape and center of the distribution</a> of “costs of treating tuberculosis in India”.</p>
+<p>The <a href="#LessonOutcomes">shape of the distribution</a> could be considered <strong>right-skewed</strong>. You can see this in the histogram below by noticing the taller bars are on the left and the shorter and outlying bars are on the right.</p>
+<p>The best measure of the <a href="#LessonOutcomes">center of the distribution</a> to report when using a histogram is the <strong>sample mean</strong>, <span class="math inline">\(\bar{x}\)</span>. For these data, the sample mean is <span class="math inline">\(\bar{x}=\$14,100\)</span>. Locating the value of <span class="math inline">\(\$14,100\)</span> in the histogram below (black triangle) visually confirms that the sample mean is a good measure of the center of the histogram.</p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>We have summarized two of the most important characteristics of a distribution: the <em>shape</em> and the <em>center</em> by using the histogram and the sample mean, <span class="math inline">\(\bar{x}\)</span>. It is also important to summarize a third characteristic of a distribution of data: the <em>spread</em>.</p>
+<p>The <strong>spread</strong> of a distribution of data describes how far the observations tend to be from the center of the distribution. When using a histogram, one of the best ways to describe the spread of distribution is with the <strong>standard deviation</strong>.</p>
+<div class="note">
+<p>The calculation and conceptual understanding of the standard deviation is very involved. You should read about <a href="#StandardDeviation">standard deviation</a> to understand better what it is and how it is calculated.</p>
+</div>
+<p>For the tuberculosis data, the standard deviation is <span class="math inline">\(\$9,287.51\)</span>. This tells us that values typically deviate from the mean by around <span class="math inline">\(\$9,287.51\)</span>. Clearly some values are farther from the mean than <span class="math inline">\(\$9,287.51\)</span> and some are closer to the mean than that, but the typical or “standard” value of the deviations of the points from the mean is given by the “standard deviation.” This provides a good feel for how spread out the data is around the mean. When the standard deviation is small, the values are very close to the mean. When the standard deviation is large, the values are very spread out around the mean. For this data, the standard deviation is fairly large. The values vary quite a bit from the mean of $14,00.</p>
+</div>
+<!-- Option 2 for Describing Data -->
+<span style="font-size:1.1em;&gt;**Option 2**: Using a boxplot and the five-number summary.&lt;/span&gt;
+&lt;div style=" padding-left:15px;"=""><strong>Option 2</strong>: Using a boxplot and the five-number summary.</span>
+<div style="padding-left:15px;">
+<p>Another approach for the data that was collected in <strong>Step 2: Collecting Data</strong> is to <a href="#LessonOutcomes">determine the shape and center of the distribution using a boxplot</a>, which is shown in the plot below. A <a href="#Boxplot">boxplot</a> is a graphical representation of five important numbers: the minimum value, the first quartile (25th percentile), the median (50th percentile), the third quartile (75th percentile), and the maximum value in the data. These five numbers are called the <a href="#FiveNumberSummary">five-number summary</a> and are always presented in that order.</p>
+<div class="note">
+<p>You should read about <a href="#Percentiles">percentiles</a> to ensure you understand what the 25th, 50th, and 75th percentiles represent.</p>
+</div>
+<p>The five-number summary provides a very useful feel for the center and spread of the distribution of data, especially when the distribution is skewed. The five-number summary for the current data is:</p>
+<table style="width:44%;">
+<colgroup>
+<col width="8%" />
+<col width="6%" />
+<col width="12%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">min</th>
+<th align="center">Q1</th>
+<th align="center">median</th>
+<th align="center">Q3</th>
+<th align="center">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">600</td>
+<td align="center">7750</td>
+<td align="center">13900</td>
+<td align="center">18025</td>
+<td align="center">32200</td>
+</tr>
+</tbody>
+</table>
+<p>The <a href="#LessonOutcomes">shape of the distribution</a> could be considered to be skewed right. This is shown in the boxplot because the minimum is close to the box of the boxplot while the maximum is farther away from the box.</p>
+<p>The <a href="#LessonOutcomes">center of the distribution</a> is <span class="math inline">\(\$13,900\)</span> as described by the <a href="#Median">median</a> which is quickly located in the plot below as the thick black line inside the box.</p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<p>After summarizing the data numerically and graphically, we are ready to make inferences about the population.</p>
+<!-- END: "Describe the Data" -->
+</div>
 </div>
 <div id="make-inference" class="section level3">
-<h3>Make Inference</h3>
+<h3><img src="Images/Step4.png" /> Make Inference</h3>
+<div class="casestudystep">
+<!-- Begin "Make Inference" -->
+<p>As mentioned previously, the historical total mean cost to society to treat a case of tuberculosis in India is known to be <span class="math inline">\(\$13,800\)</span>.</p>
+<p>Given the evidence in the data, we see that the sample mean is <span class="math inline">\(\bar{x} = \$14,100\)</span> and the sample median is <span class="math inline">\(\$13,900\)</span>. This seems to suggest that the average cost is now higher than <span class="math inline">\(\$13,800\)</span>. However, as calculations that you will learn later on the course will show, there is actually not enough evidence to officially make this conclusion. In other words, there is insufficient evidence to suggest that the <em>true</em> mean cost <span class="math inline">\(\mu\)</span> of treating tuberculosis in India is greater than <span class="math inline">\(\$13,800\)</span>. Thus we will continue to assume the null hypothesis is true, that the <em>true</em> average cost is still <span class="math inline">\(\mu = \$13,800\)</span>.</p>
+<div class="note">
+<p>Note that the symbol for the true mean is <span class="math inline">\(\mu\)</span> and the symbol for the sample mean is <span class="math inline">\(\bar{x}\)</span>.</p>
+</div>
+<!-- END: "Make Inference" -->
+</div>
 </div>
 <div id="take-action" class="section level3">
-<h3>Take Action</h3>
+<h3><img src="Images/Step5.png" /> Take Action</h3>
+<div class="casestudystep">
+<!-- Begin "Take Action" -->
+<p>After making inferences, you take action. Since we failed to reject the null hypothesis, we find that there is not enough evidence to conclude that there is inflation in the cost of treating tuberculosis. There is no need to for the Government of India to take action.</p>
+<!-- END: "Take Action" -->
+</div>
 <hr />
 </div>
 <div id="note" class="section level3">
 <h3>Note</h3>
+<p>There were many new concepts discussed in this case study. Be sure to study the Concepts and Definitions section carefully to ensure you understand them.</p>
 </div>
 <!-- Concepts and Definitions Section Begin ----------------------------->
 </div>
 </div>
-<div id="concepts-and-definitions" class="section level2">
+<div id="ConceptsAndDefinitions" class="section level2">
 <h2>Concepts and Definitions</h2>
-<div class="concepts">
+<div class=concepts>
+
+
+
+<!-- Concept & Definitions Item Template -->
+<div id="distributions-shape-center-and-spread" class="section level3 tabset">
+<h3>Distributions: Shape, Center, and Spread</h3>
+<!-- Any general comments go here -->
+<p><strong>Distributions</strong> describe how quantitative data is spread out. They show which values are most common as well as which values are possible, but less common.</p>
+<p>There are three main characteristics of a distribution: <strong>shape</strong>, <strong>center</strong>, and <strong>spread</strong>.</p>
+<div id="shape" class="section level4">
+<h4>Shape</h4>
+<div class="conceptparagraph">
+<p>We will describe the shape of the distribution of a data set using the following basic categories: <strong>right-skewed</strong>, <strong>bell-shaped</strong> (which is symmetric), and <strong>left-skewed</strong>.</p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div style="padding-left:20px;">
+<table>
+<colgroup>
+<col width="34%" />
+<col width="33%" />
+<col width="31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th> </th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A distribution is right-skewed if the distribution shows a long right tail. This can occur if there are some outlying values on the high end of the distribution.</td>
+<td>A distribution is bell-shaped, or symmetric if both the left and right side of the distribution appear to be roughly a mirror image of each other.</td>
+<td>A distribution is left-skewed if it has a long tail to the left, which can occur when there are outliers on the low end of the distribution.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="center" class="section level4">
+<h4>Center</h4>
+<div class=conceptparagraph>
+
+<p>There are three common measures of center: the <strong>mean</strong>, the <strong>median</strong>, and the <strong>mode</strong>. Measures of center give a good feel about the typical, or most common values in a dataset. They are most meaningful when most of the data is close to the center.</p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div style="padding-left:20px;">
+<table>
+<colgroup>
+<col width="34%" />
+<col width="33%" />
+<col width="31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Right-skewed</th>
+<th>Bell-shaped</th>
+<th>Left-skewed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>In a right-skewed distribution, the mean is skewed to the right of the median, and both are skewed to the right of the mode.</td>
+<td>The mean, median, and mode are the same in a bell-shaped distribution.</td>
+<td>In a left-skewed distribution, the mean is skewed to the left of the median, and both are skewed to the left of the mode.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+</div>
+<div id="spread" class="section level4">
+<h4>Spread</h4>
+<div class="conceptparagraph">
+<p>Common measures of spread include: the <strong>standard deviation</strong> and the <strong>five-number summary</strong>. Measures of spread help us understand how consistent (or inconsistent) the data is around the center of its distribution. They provide a measurement of the variability of the data.</p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<!-- End overview -->
+<hr class=conceptsplit>
+<p><br /> <!-- End Concept Item --></p>
+<!-- Concept & Definitions Item Template -->
+</div>
+</div>
+<div id="histograms" class="section level3 tabset">
+<h3>Histograms</h3>
+<!-- Any general comments go here -->
+<!-- End general comments -->
+<div id="overview" class="section level4">
+<h4>Overview</h4>
+<!-- The Overview starts here -->
+<p>A <strong>histogram</strong> is a statistical plot that visually summarizes the shape of the distribution of quantitative data using frequency bars that group neighboring observations into bins.</p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<!-- End overview -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="excel-instructions" class="section level4 tabset tabset-fade tabset-pills">
+<h4>Excel Instructions</h4>
+<!-- The Excel Instructions start here -->
+<div id="step-1" class="section level5">
+<h5>Step 1</h5>
+<p>Enter your data into Excel and highlight the data using your mouse.</p>
+<div class="figure">
+<img src="./Images/Hist1.png" />
 
 </div>
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="step-2" class="section level5">
+<h5>Step 2</h5>
+<!-- End Excel Instructions -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+</div>
+<div id="explanation" class="section level4">
+<h4>Explanation</h4>
+<!-- The Explanation begins here -->
+<p>Histograms are only used for quantitative data.</p>
+<p>Histograms give a quick visual understanding of which values are most typical in the data and which values are least typical. They also provide an intuitive feel for the location of the mean of the data.</p>
+<p>Histograms readily depict the overall shape of the distribution of data. A distribution is right-skewed if a histogram of the distribution shows a long right tail. This can occur if there are some very large outliers. A distribution is left-skewed if a histogram shows that it has a long tail to the left.</p>
+<div id="how-a-histogram-is-made" class="section level5">
+<h5>How a Histogram is Made</h5>
+<ol style="list-style-type: decimal">
+<li>The number line is divided into consecutive intervals called bins. Typically between 5-15 bins are used, but any other option is possible.</li>
+<li>The number of observations from the data set that occur in each bin is recorded. These counts are called frequencies.</li>
+<li>Vertical bars are drawn for each bin such that the height of the bar corresponds to frequency of observations that occur in the bin. See the Example below for details.</li>
+</ol>
+</div>
+<div id="what-this-looks-like" class="section level5">
+<h5>What this Looks Like</h5>
+<p>The following data are representative of the total costs (in US dollars) incurred by society in the treatment of 10 randomly selected tuberculosis patients in India.</p>
+<p><em>15100</em>, <em>19000</em>, <em>4800</em>, <em>6500</em>, <em>14900</em>, <em>600</em>, <em>23500</em>, <em>11500</em>, <em>12900</em> and <em>32200</em></p>
+<p>Since the smallest data value is 600 and the largest is 32,200, we will divide the number line from 0 to 35,000 into seven equal bins, each of width 5,000. We will then count the number of data points in each of these intervals. The following table shows this process for the tuberculosis data.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Interval</th>
+<th>Number of Observations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>At least 0 and less than 5,000</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>At least 5,000 and less than 10,000</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>At least 10,000 and less than 15,000</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>At least 15,000 and less than 20,000</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>At least 20,000 and less than 25,000</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>At least 25,000 and less than 30,000</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>At least 30,000 and less than 35,000</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>For each of the bins listed above, we draw a bar on the histogram. The width of the bars is determined by the width of the bin (5000 in this example). The height of the bars is equal to the number of observations that fall in each interval. The result looks as follows.</p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<!-- End Explanation -->
+<hr class=conceptsplit>
+<p><br /></p>
+<!-- End Concept Item -->
+<!-- Concept & Definitions Item Template -->
+</div>
+</div>
+</div>
+<div id="boxplots" class="section level3 tabset">
+<h3>Boxplots</h3>
+<!-- Any general comments go here -->
+<!-- End general comments -->
+<div id="overview-1" class="section level4">
+<h4>Overview</h4>
+<!-- The Overview starts here -->
+<p>A <strong>boxplot</strong> is a statistical plot that visually summarizes the distribution of quantitative data using the <strong>five-number summary</strong>.</p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<!-- End overview -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="excel-instructions-1" class="section level4 tabset tabset-fade tabset-pills">
+<h4>Excel Instructions</h4>
+<!-- The Examples start here -->
+<div id="step-1-1" class="section level5">
+<h5>Step 1</h5>
+<p>Highlight the data.</p>
+<div class="figure">
+<img src="Images/Box1.png" />
+
+</div>
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="step-2-1" class="section level5">
+<h5>Step 2</h5>
+<p>Select “Insert” from the file menu.</p>
+<div class="figure">
+<img src="Images/Box2.png" />
+
+</div>
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="step-3" class="section level5">
+<h5>Step 3</h5>
+<p>Select “Other Charts” icon charts menu that appears.</p>
+<div class="figure">
+<img src="Images/Box3.png" />
+
+</div>
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="step-4" class="section level5">
+<h5>Step 4</h5>
+<p>Choose the Boxplot icon from the options.</p>
+<div class="figure">
+<img src="Images/Box4.png" />
+
+</div>
+<!-- End Excel Instructions -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+</div>
+<div id="explanation-1" class="section level4">
+<h4>Explanation</h4>
+<!-- The Explanation begins here -->
+<p>Boxplots are only used for quantitative data.</p>
+<p>Boxplots provide a quick visual understanding of the location of the median as well as the range of the data. They also readily depict the middle 50% of the data and can be useful in showing outliers.</p>
+<div id="how-a-boxplot-is-made" class="section level5">
+<h5>How a Boxplot is Made</h5>
+<ol style="list-style-type: decimal">
+<li>The five-number summary is computed.</li>
+<li>A box is drawn with one edge located at the first quartile and the opposite edge located at the third quartile.</li>
+<li>This box is then divided into two boxes by placing another line inside the box at the location of the median.</li>
+<li>The maximum value and minimum value are marked on the plot.</li>
+<li>Whiskers are drawn from the first quartile out towards the minimum and from the third quartile out towards the maximum.</li>
+<li>If the minimum or maximum is too far away, then the whisker is ended early (as on the boxplot shown above for the skewed left data).</li>
+<li>Any points beyond the line ending the whisker are marked on the plot as dots. This helps identify possible outliers in the data. See the Example below for details.</li>
+</ol>
+</div>
+<div id="what-this-looks-like-1" class="section level5">
+<h5>What this Looks Like</h5>
+<p>The following data are representative of the total costs (in US dollars) incurred by society in the treatment of 10 randomly selected tuberculosis patients in India.</p>
+<p><em>15100</em>, <em>19000</em>, <em>4800</em>, <em>6500</em>, <em>14900</em>, <em>600</em>, <em>23500</em>, <em>11500</em>, <em>12900</em> and <em>32200</em></p>
+<p>The five-number summary of these data is given as follows.</p>
+<table style="width:44%;">
+<colgroup>
+<col width="8%" />
+<col width="6%" />
+<col width="12%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">min</th>
+<th align="center">Q1</th>
+<th align="center">median</th>
+<th align="center">Q3</th>
+<th align="center">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">600</td>
+<td align="center">7750</td>
+<td align="center">13900</td>
+<td align="center">18025</td>
+<td align="center">32200</td>
+</tr>
+</tbody>
+</table>
+<p>The resulting box plot looks as follows.</p>
+<p><img src="Lesson03_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<!-- End Explanation -->
+<hr class=conceptsplit>
+<p><br /></p>
+<!-- End Concept Item -->
+<!-- Concept & Definitions Item Template -->
+</div>
+</div>
+</div>
+<div id="mean-median-mode" class="section level3 tabset">
+<h3>Mean, Median, Mode</h3>
+<!-- Any general comments go here -->
+<p>The mean, median, and mode are all measures of the center of a distribution of data.</p>
+<!-- End general comments -->
+<div id="overview-2" class="section level4">
+<h4>Overview</h4>
+<!-- The Overview starts here -->
+<p>The <strong>sample mean</strong>, denoted by <span class="math inline">\(\bar{x}\)</span>, is computed by adding up the values of the <em>observed data</em> and dividing by the number of observations <span class="math inline">\(n\)</span> in the data set.</p>
+<p>The <strong>population mean</strong>, denoted by <span class="math inline">\(\mu\)</span>, is obtained by computing the mean of all the data from the <em>full population</em>.</p>
+<p>The <strong>median</strong> is the “middle” value in a sorted data set. When there are an odd number of points, the median is the middle value. When there are an even number of points, the median is the mean of the middle two values. In either case, half of the observations in the data set are below the median and half are above the median.</p>
+<p>The <strong>mode</strong> is the most frequently occurring value in a data set. Sometimes there is more than one mode. If no number occurs more than once in the data set, we say that there is no mode.</p>
+<!-- End overview -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="excel-instructions-2" class="section level4">
+<h4>Excel Instructions</h4>
+<!-- The Examples start here -->
+<ol style="list-style-type: decimal">
+<li>Click on a blank cell.</li>
+<li>Type one of the Excel functions:<br />
+<code>=AVERAGE(</code><br />
+<code>=MEDIAN(</code><br />
+<code>=MODE(</code></li>
+<li>Highlight the data using your mouse</li>
+<li>Type a closing <code>)</code></li>
+<li>Press Return (or Enter)</li>
+</ol>
+<div class="figure">
+<img src="Images/MeanMedianMode1.png" />
+
+</div>
+<!-- End Examples -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="explanation-2" class="section level4">
+<h4>Explanation</h4>
+<!-- The Explanation begins here -->
+<p>The sample mean is the most common tool used to estimate the center of a distribution. You may have heard people refer to the sample mean as the “average.” Technically, the word “average” refers to any number that is used to estimate the center of a distribution. However, most commonly, people use the word “average” when they are referring to the “mean.”</p>
+<p>In Statistics, important ideas are given a name. Very important ideas are given a symbol. The sample mean has both a name (mean) and a symbol (<span class="math inline">\(\bar{x}\)</span>). It is a very important concept that will be used heavily throughout this course.</p>
+<p>The median is typically preferred over the mean for describing the center of skewed distributions. When data is symmetric (bell-shaped) then the median is the same as the mean, so the mean is preferred.</p>
+<p>Ironically, the mode is the least commonly used measure of center. It is most appropriate for summarizing data that has only distinct values that are possible, like shoe sizes, or rolls of a die.</p>
+<!-- End Explanation -->
+<hr class=conceptsplit>
+<p><br /></p>
+<!-- End Concept Item -->
+</div>
+</div>
+<div id="five-number-summary" class="section level3 tabset">
+<h3>Five-number Summary</h3>
+<!-- Any general comments go here -->
+<!-- End general comments -->
+<div id="overview-3" class="section level4">
+<h4>Overview</h4>
+<!-- The Overview starts here -->
+<!-- End overview -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="excel-instructions-3" class="section level4 tabset tabset-fade tabset-pills">
+<h4>Excel Instructions</h4>
+<!-- The Examples start here -->
+<div id="step-1-2" class="section level5">
+<h5>Step 1</h5>
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="step-2-2" class="section level5">
+<h5>Step 2</h5>
+<!-- End Examples -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+</div>
+<div id="explanation-3" class="section level4">
+<h4>Explanation</h4>
+<!-- The Explanation begins here -->
+<!-- End Explanation -->
+<hr class=conceptsplit>
+<p><br /></p>
+<!-- End Concept Item -->
+<!-- Concept & Definitions Item Template -->
+</div>
+</div>
+<div id="standard-deviation" class="section level3 tabset">
+<h3>Standard Deviation</h3>
+<!-- Any general comments go here -->
+<!-- End general comments -->
+<div id="overview-4" class="section level4">
+<h4>Overview</h4>
+<!-- The Overview starts here -->
+<!-- End overview -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="excel-instructions-4" class="section level4 tabset tabset-fade tabset-pills">
+<h4>Excel Instructions</h4>
+<!-- The Examples start here -->
+<div id="step-1-3" class="section level5">
+<h5>Step 1</h5>
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="step-2-3" class="section level5">
+<h5>Step 2</h5>
+<!-- End Examples -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+</div>
+<div id="explanation-4" class="section level4">
+<h4>Explanation</h4>
+<!-- The Explanation begins here -->
+<!-- End Explanation -->
+<hr class=conceptsplit>
+<p><br /></p>
+<!-- End Concept Item -->
+<!-- Concept & Definitions Item Template -->
+</div>
+</div>
+<div id="percentiles" class="section level3 tabset">
+<h3>Percentiles</h3>
+<!-- Any general comments go here -->
+<!-- End general comments -->
+<div id="overview-5" class="section level4">
+<h4>Overview</h4>
+<!-- The Overview starts here -->
+<!-- End overview -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="excel-instructions-5" class="section level4 tabset tabset-fade tabset-pills">
+<h4>Excel Instructions</h4>
+<!-- The Examples start here -->
+<div id="step-1-4" class="section level5">
+<h5>Step 1</h5>
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+<div id="step-2-4" class="section level5">
+<h5>Step 2</h5>
+<!-- End Examples -->
+<hr class=conceptsplit>
+<p><br /></p>
+</div>
+</div>
+<div id="explanation-5" class="section level4">
+<h4>Explanation</h4>
+<!-- The Explanation begins here -->
+<!-- End Explanation -->
+<hr class=conceptsplit>
+<p><br /></p>
+<!-- End Concept Item -->
+<!-- End Concepts and Definitions -->
+</div>
 <!-- Worked Example Section Begin --------------------------------------->
+</div>
+</div>
 </div>
 <div id="worked-example" class="section level2">
 <h2>Worked Example</h2>
@@ -474,6 +1049,22 @@ div.tocify {
 <h2>Homework Assignment</h2>
 <div class="homework">
 
+</div>
+<!-- Lesson Outcomes Section Begin ------------------------------------->
+</div>
+<div id="LessonOutcomes" class="section level2">
+<h2>Lesson Outcomes</h2>
+<div class="outcomes">
+<!-- begin writing outcomes below here -->
+<ul>
+<li>Determine the shape, center, and spread of a distribution from a histogram.</li>
+<li>Determine the shape, center, and spread of a distribution from a boxplot.</li>
+<li>Identify the mean and median in skewed or bell-shaped distributions.</li>
+<li>Calculate the mean, median, and standard deviation from quantitative data both by hand and with software.</li>
+<li>Calculate a percentile and the five-number summary from a quantitative data set with software.</li>
+<li>Create a histogram and a box-plot from quantitative data both by hand and with software.</li>
+</ul>
+<!-- Stop writing Outcomes here. -->
 </div>
 <!-- End of Document --------------------------------------------------->
 <footer>

@@ -92,3 +92,8 @@ div.hidden {
   padding-left:15px;
   padding-right:15px;
 }
+
+.note {
+  font-size:.8em;
+  padding:5px;
+}
